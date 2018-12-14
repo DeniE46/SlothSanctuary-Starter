@@ -40,8 +40,8 @@ data class Sloth constructor(
         @field:Element(name = "realName")
         @param:Element(name = "realName")
         var realName: String = "",
-        @field:Element(name = "imageResourceName")
-        @param:Element(name = "imageResourceName")
+        @field:Element(name = "imageResource")
+        @param:Element(name = "imageResource")
         var imageResourceName: String = "",
         @field:Element(name = "description")
         @param:Element(name = "description")

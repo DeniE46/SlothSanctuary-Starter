@@ -31,6 +31,7 @@
 package com.raywenderlich.android.slothsanctuary
 
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
@@ -50,6 +51,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val bn = BN() //BubbleNumbers
+        bn.sn() //bubbleNumbers.setupNumbers
 
         setupBubblePicker()
     }
@@ -73,9 +76,10 @@ class MainActivity : AppCompatActivity() {
             val colors = resources.obtainTypedArray(R.array.colors)
             val titles = map.toList()
 
-            val multiplier = 2
-            val modulus = 8
-            val addition = 1
+            val multiplier = GO.f1 //GradientObject.field1
+            val modulus = GO.f2 //GradientObject.field2
+            val addition = GO.f3 //GradientObject.field3
+
 
             override val totalCount = titles.size // 1
 
@@ -97,6 +101,13 @@ class MainActivity : AppCompatActivity() {
         picker.listener = object : BubblePickerListener { // 3
 
             override fun onBubbleSelected(item: PickerItem) {
+                val showDetailsIntent = Intent(picker.context, SlothDetailActivity::class.java)
+                val pet = map[item.title]
+                showDetailsIntent.putExtra(SLOTH_KEY, pet)
+                startActivity(showDetailsIntent)
+
+                item.isSelected = false
+
 
             }
 

@@ -25,3 +25,6 @@
 -keep class org.jbox2d.** { *; }
 -dontwarn javax.xml.stream.**
 -dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+-keep class * implements org.simpleframework.xml.core.Parameter { public *; }
+-keep class kotlin.reflect.jvm.internal.** { *; }
+-keep class kotlin.Metadata { *; }
